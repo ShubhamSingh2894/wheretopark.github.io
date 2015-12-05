@@ -12,13 +12,14 @@
 	<script type="text/javascript">
 	function thank (){
 	var now = new Date();
+	var day = now.getDay();
 	var hour    = now.getHours();
     var minute  = now.getMinutes();
 	var a = hour + minute/60;
-	//console.log(a);
-	if((a<8.5) || (a>14.5))
+	console.log(day);
+	if((a<8.5) || (a>14.5) || (day == 6 || day == 7) )
 		{
-			alert("Please Note that currently we are operating from 8.30am to 2.30pm only. We thank you for visiting us.");
+			alert("Please Note that currently we are operating from 8.30am to 2.30pm from Monday to Friday only. We thank you for visiting us.");
 		}
 		else{ 
 		}
