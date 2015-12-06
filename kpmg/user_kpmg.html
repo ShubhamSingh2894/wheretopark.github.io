@@ -59,7 +59,7 @@
 		
 		query.get("CxD6JdgfB6",{ 
 			success: function(user) {
-
+					document.getElementById("park_2").innerHTML = user.get("parking_counter")+ " " + "Slots Available";
 			},
 			error: function(object, error) { 	
 				}
