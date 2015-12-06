@@ -18,45 +18,57 @@
     <link href="../css/jumbotron-narrow.css" rel="stylesheet">
 	<script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src ="js/hits.js"></script>
-	<script type="text/javascript">
+	<script src ="../js/hits.js"></script>
 	
+	<script type="text/javascript">
+		function thank (){
+			var now = new Date();
+			var day = now.getDay();
+			var hour    = now.getHours();
+			var minute  = now.getMinutes();
+			var a = hour + minute/60;
+			console.log(day);
+			if((a<8.5) || (a>14.5) || (day == 6 || day == 7) )
+				{
+				alert("Please note that currently we operate from Monday to Friday 8.30am to 2.30pm. We thank you for visiting us.");
+			}
+				
+		}
+
 	function refresh() {
 			Parse.$ = jQuery;
-			Parse.initialize("SxLcanZTIZ5uJxDqtE65d0NPxk1zYRxZSxt6E5oq", "JdEN6kYT4thC4AzBS4nMfAavGDszgP24biD4KRmy");
-			var User = Parse.Object.extend("User");
+			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
+			var User = Parse.Object.extend("KPMG");
 			var query = new Parse.Query(User);
 			
-			query.get("hfBMJ3zWKa",{ 
+			query.get("1dDJ4kgypx",{ 
 			success: function(user) {
-			var parking_0 = user.get("status_available");
-			document.getElementById("park_0").innerHTML=parking_0[0];
-						},
+			document.getElementById("park_0").innerHTML=user.get("status_available");
+					},
 			error: function(object, error) {
 				}
 			});
 			
-			query.get("hfBMJ3zWKa",{ 
+			query.get("8CeEdrKPnC",{ 
 			success: function(user) {
-			var parking_1 = user.get("status_available");
-			document.getElementById("park_1").innerHTML=parking_1[1];
+			document.getElementById("park_1").innerHTML=user.get("status_available");
 			},
 			error: function(object, error) { 	
 				}
 			});
 		
-		query.get("hfBMJ3zWKa",{ 
+		query.get("CxD6JdgfB6",{ 
 			success: function(user) {
-			var parking_2 = user.get("status_available");
-			document.getElementById("park_2").innerHTML=parking_2[2];
+
 			},
 			error: function(object, error) { 	
 				}
 			});
 		
 		}
-        window.onload = refresh;
-        </script>
+		
+		window.onload = refresh;
+    </script>
  
   </head>
 
