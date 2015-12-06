@@ -60,7 +60,12 @@
 		
 		query.get("CxD6JdgfB6",{ 
 			success: function(user) {
+					if(user.get("disable") == true){
 					document.getElementById("park_2").innerHTML = user.get("parking_counter")+ " " + "Slots Available";
+					}
+					else { 
+						document.getElementById("park_2").innerHTML = user.get("status_available");
+					}
 			},
 			error: function(object, error) { 	
 				}
