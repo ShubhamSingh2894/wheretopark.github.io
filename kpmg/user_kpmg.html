@@ -46,7 +46,12 @@
 			
 		query.get("CxD6JdgfB6",{ 
 			success: function(user) {
-					
+					if(user.get("parking_counter") == 0) { 
+								document.getElementById("park_2").innerHTML="Full";
+					}
+				 else { 
+								document.getElementById("park_2").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
+					}
 			},
 			error: function(object, error) { 	
 				}
