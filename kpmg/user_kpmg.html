@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<link rel="shortcut icon" href="../images/wtp.ico" type="image/x-icon" >
-	<meta http-equiv="refresh" content="10">  
+	<!--<meta http-equiv="refresh" content="10">-->  
 
     <title>WhereToPark</title>
 
@@ -22,36 +22,32 @@
 	
 	<script type="text/javascript">
 
+	
 	function refresh() {
 			Parse.$ = jQuery;
 			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
 			var User = Parse.Object.extend("KPMG");
 			var query = new Parse.Query(User);
 			
-			query.get("1dDJ4kgypx",{ 
-			success: function(user) {
-			document.getElementById("park_0").innerHTML=user.get("status_available");
-					},
-			error: function(object, error) {
-				}
-			});
 			
-			query.get("8CeEdrKPnC",{ 
+		query.get("8CeEdrKPnC",{ 
+			success: function(user) {
+				
+			}	
+			});	
+	
+		query.get("8CeEdrKPnC",{ 
 			success: function(user) {
 			document.getElementById("park_1").innerHTML=user.get("status_available");
+
 			},
 			error: function(object, error) { 	
 				}
 			});
-		
+			
 		query.get("CxD6JdgfB6",{ 
 			success: function(user) {
-					if(user.get("disable") == true){
-					document.getElementById("park_2").innerHTML = user.get("parking_counter")+ " " + "Slots Available";
-					}
-					else{ 
-						document.getElementById("park_2").innerHTML = user.get("status_available");
-					}
+					
 			},
 			error: function(object, error) { 	
 				}
@@ -94,7 +90,7 @@
 	</table>      
   </div>
       <footer class="footer">
-	  <p style="font-size:80%" >Kindly Note that currently our operating hours are from 8:30 AM to 2:30 PM only<p>
+		<p style="font-size:80%" >Kindly Note that currently our operating hours are from 8:30 AM to 2:30 PM only<p>
         <p>&copy; 2015 Dream Manor Navigation</p>
       </footer>
 
