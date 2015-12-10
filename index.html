@@ -10,22 +10,21 @@
 
     <title>WhereToPark</title>
 	<script type="text/javascript">
-	function thank (){
-	var now = new Date();
-	var day = now.getDay();
-	var hour    = now.getHours();
-    var minute  = now.getMinutes();
-	var a = hour + minute/60;
-	console.log(day);
-	if((a<8.5) || (a>14.5) ||day == 6 || day == 0 )
-		{
-			alert("Please note that currently we operate from Monday to Friday 8.30am to 2.30pm. We thank you for visiting us.");
-		}
-		else{ 
-		}
-	}
-		window.onload = function(){thank();};
-
+	
+            function thank (){
+                var now = new Date();
+                var day = now.getDay();
+                var hour    = now.getHours();
+                var minute  = now.getMinutes();
+                var a = hour + minute/60;
+                if((a<8.5) || (a>14.5) ||day == 6 || day == 0 )
+                    {
+                            alert("Please note that currently we operate from Monday to Friday 8.30am to 2.30pm. We thank you for visiting us.");
+                    }
+        
+            }
+        
+        window.onload = function(){thank();};
 	</script >
 	<!--
 	<script>
@@ -61,7 +60,9 @@
 		<h5 style="color:red"><i><strong>Better Parking, Better Convenience</strong></i></h5>
 		<h4>Please select your parking:</h4>
 		<p class="lead"></p>
-        <p><a class="btn  btn-primary active" id="kpmg" href="kpmg/user_kpmg.html" role="button">KPMG</a></p> 
+                <p><a class="btn-lg  btn-primary active" id="kpmg" href="kpmg/user_kpmg.html" role="button">KPMG</a></p> 
+		<p><a class="btn-lg  btn-warning active" id="pwc" href="kpmg/pwc.html" role="button">PWC</a></p> 
+		<p><a class="btn-lg  btn-primary disabled" id="flour" href="" role="button">Flour (Soon)</a></p> 
 		<p><a class="btn btn-success btn-primary btn-xs disabled" href="#" role="button">Cyber Hub (Soon)</a></p>
 		
 		<p style="font-size:100%" "text-align:center" "font-weight:bold" >Contact Us: <a href="mailto:hello@wheretopark.xyz">hello@wheretopark.xyz</a> <p>
