@@ -24,6 +24,16 @@
 
 	
 	function refresh() {
+                var now= new Date();
+                var     day = now.getDay();
+                    var hour    = now.getHours();
+                    var minute  = now.getMinutes();
+                    var a = hour + minute/60;
+                    if((a<8.5) || (a>14.5) ||day == 6 || day == 0 ) 
+                        { 
+                                    alert("sagar"); 
+                            }
+                    else {
 			Parse.$ = jQuery;
 			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
 			var User = Parse.Object.extend("KPMG");
@@ -71,6 +81,7 @@
 				}
 			});
 		
+		}
 		}
 		
 		window.onload = refresh;
