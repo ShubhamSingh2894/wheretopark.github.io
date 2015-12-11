@@ -24,23 +24,13 @@
 
 	
 	function refresh() {
-                var now= new Date();
-                var     day = now.getDay();
-                    var hour    = now.getHours();
-                    var minute  = now.getMinutes();
-                    var a = hour + minute/60;
-                    if((a<8.5) || (a>14.5) ||day == 6 || day == 0 ) 
-                        { 
-                                    alert("Please note that currently we operate from Monday to Friday 8.30am to 2.30pm. We thank you for visiting us."); 
-                            }
-                    else {
-			Parse.$ = jQuery;
+                	Parse.$ = jQuery;
 			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
-			var User = Parse.Object.extend("KPMG");
+			var User = Parse.Object.extend("PWC");
 			var query = new Parse.Query(User);
 			
 			
-		query.get("1dDJ4kgypx",{ 
+		query.get("quOVEYWF6d",{ 
 			success: function(user) {
 				if(user.get("parking_counter") == 0) { 
 						document.getElementById("park_0").innerHTML="Full";
@@ -53,35 +43,7 @@
 					}
 			}	
 			});	
-	
-		query.get("8CeEdrKPnC",{ 
-			success: function(user) {
-				if(user.get("parking_counter") == 0) { 
-						document.getElementById("park_1").innerHTML="Full";
-					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){ 
-								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
-					}
-					else {
-							document.getElementById("park_1").innerHTML="Available";			
-					}
-			}	
-			});
-			
-		query.get("CxD6JdgfB6",{ 
-			success: function(user) {
-					if(user.get("parking_counter") == 0) { 
-								document.getElementById("park_2").innerHTML="Full";
-					}
-				 else { 
-								document.getElementById("park_2").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
-					}
-			},
-			error: function(object, error) { 	
-				}
-			});
-		
-		}
+
 		}
 		
 		window.onload = refresh;
@@ -99,32 +61,33 @@
         <h5 style="color:red"><i><strong>Better Parking, Better Convenience</strong></i></h5>
 		
 		<p class="lead"></p>
-		<p><a class="btn btn-primary btn-primary disabled" href="#" role="button">KPMG</a></p>
+		<p><a class="btn  btn-warning btn-warning disabled" href="#" role="button">PWC</a></p>
 		<table class="table table-striped">
 	
 		<tbody>
 			<tr style="text-align:left">
-				<td><strong>Surface Parking</strong></td>
+				<td><strong>Basement Parking</strong></td>
 				<td id="park_0"></td>
 			</tr>
-			<tr style="text-align:left">
+			<!--<tr style="text-align:left">
 				<td><strong>Basement Parking</strong></td>
 				<td id="park_1"><strong></strong></td>        
 			</tr>
 			<tr style="text-align:left">
 				<td style="word-wrap: break-word;"><strong>Vodafone Belvedere Metro Station Parking</strong></td>
 				<td id="park_2"><strong></strong></td>
-			</tr>
+			</tr>-->
 		</tbody>
 	</table>      
   </div>
-       <footer class="footer">
+      <footer class="footer">
 	  <p style="font-size:80%" ><strong>Beta Version</strong><p>
 	  
 	  <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:30 AM to 2:30 PM only<p>
 	   
         <p style="font-size:80%">&copy; 2015 Dream Manor Navigation Private Limited</p>
       </footer>
+
     </div>
   </body>
 </html>
