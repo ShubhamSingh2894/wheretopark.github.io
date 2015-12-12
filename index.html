@@ -51,6 +51,24 @@
   </head>
 
   <body >
+  
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '112970469074674',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
   <div class="container">
         <div class="jumbotron" style="background-color:white"  >
@@ -85,6 +103,13 @@
 	  <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:30 AM to 2:30 PM only<p>
 	   
         <p style="font-size:80%">&copy; 2015 Dream Manor Navigation Private Limited</p>
+        
+        <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+    </div>
       </footer>
 
     </div> <!-- /container -->
