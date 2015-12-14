@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<link rel="shortcut icon" href="../images/wtp.ico" type="image/x-icon" >
-    <meta http-equiv="refresh" content="10">
-    
+    <meta http-equiv="refresh" content="20">
+
     <title>WhereToPark</title>
 
     <!-- Bootstrap core CSS -->
@@ -19,78 +19,78 @@
     <link href="../css/jumbotron-narrow.css" rel="stylesheet">
 	<script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	
+
 	<script type="text/javascript">
 
-	
+
 	function refresh() {
-               
+
 			Parse.$ = jQuery;
 			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
 			var User = Parse.Object.extend("KPMG");
 			var query = new Parse.Query(User);
-			
-			
-                query.get("1dDJ4kgypx",{ 
+
+
+                query.get("1dDJ4kgypx",{
 			success: function(user) {
-				if(user.get("parking_counter") == 0) { 
+				if(user.get("parking_counter") == 0) {
 						document.getElementById("park_0").innerHTML="Full";
 					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){ 
+				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
 								document.getElementById("park_0").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
 					}
 					else {
-							document.getElementById("park_0").innerHTML="Available";			
+							document.getElementById("park_0").innerHTML="Available";
 					}
-			}	
-			});	
-	
-		query.get("8CeEdrKPnC",{ 
+			}
+			});
+
+		query.get("8CeEdrKPnC",{
 			success: function(user) {
-				if(user.get("parking_counter") == 0) { 
+				if(user.get("parking_counter") == 0) {
 						document.getElementById("park_1").innerHTML="Full";
 					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){ 
+				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
 								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
 					}
 					else {
-							document.getElementById("park_1").innerHTML="Available";			
+							document.getElementById("park_1").innerHTML="Available";
 					}
-			}	
+			}
 			});
-			
-		query.get("CxD6JdgfB6",{ 
+
+		query.get("CxD6JdgfB6",{
 			success: function(user) {
-					if(user.get("parking_counter") == 0) { 
+					if(user.get("parking_counter") == 0) {
 								document.getElementById("park_2").innerHTML="Full";
 					}
-				 else { 
+				 else {
 								document.getElementById("park_2").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
 					}
 			},
-			error: function(object, error) { 	
+			error: function(object, error) {
 				}
 			});
 		}
-		
+
 		window.onload = refresh;
     </script>
- 
+
   </head>
 
   <body>
 
     <div class="container">
-	
+
       <div class="jumbotron" style="background-color:white" >
 		<img class="img" src="../images/wtp1.jpg" height="30%" width="30%" alt="WhereToPark">
 				<h2 style="color:#984807"><strong>WhereToPark</strong></h2>
         <h5 style="color:red"><i><strong>Better Parking, Better Convenience</strong></i></h5>
-		
+
 		<p class="lead"></p>
 		<p><a class="btn btn-primary btn-primary disabled" href="#" role="button">KPMG</a></p>
 		<table class="table table-striped">
-	
+
 		<tbody>
 			<tr style="text-align:left">
 				<td><strong>Surface Parking</strong></td>
@@ -98,18 +98,18 @@
 			</tr>
 			<tr style="text-align:left">
 				<td><strong>Basement Parking</strong></td>
-				<td id="park_1"><strong></strong></td>        
+				<td id="park_1"><strong></strong></td>
 			</tr>
 			<tr style="text-align:left">
 				<td style="word-wrap: break-word;"><strong>Vodafone Belvedere Metro Station Parking</strong></td>
 				<td id="park_2"><strong></strong></td>
 			</tr>
 		</tbody>
-	</table>      
+	</table>
   </div>
-      
+
     <script>
-    
+
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -122,12 +122,12 @@
 
 	 <footer class="footer">
 	  <p style="font-size:80%" ><strong>Beta Version</strong><p>
-	  
-	  <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:30 AM to 2:30 PM only<p>
-	   
+
+	  <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:30 AM to 3:30 PM only<p>
+
         <p style="font-size:80%">&copy; 2015 Dream Manor Navigation Private Limited</p>
       </footer>
-    
+
       </div>
   </body>
 </html>
