@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<link rel="shortcut icon" href="../images/wtp.ico" type="image/x-icon" >
-    <meta http-equiv="refresh" content="15">
+    <meta http-equiv="refresh" content="20">
 
     <title>WhereToPark</title>
 
@@ -48,7 +48,7 @@
 		query.get("8CeEdrKPnC",{
 			success: function(user) {
 				if(user.get("parking_counter") == 0) {
-						document.getElementById("park_1").innerHTML="Full";
+						document.getElementById("park_1").innerHTML="Full / " + user.get("waitlist")+ " Waitlist";
 					}
 				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
 								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
@@ -144,7 +144,6 @@
 
 	 <footer class="footer">
 	  <p style="font-size:80%" ><strong>Beta Version</strong><p>
-    <p style="font-size:80%" >We understand that there is a time lag in the token circulations from the exit. We are trying to address the same to serve you better. Thank you for your support.<p>
 
 	  <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:30 AM to 3:30 PM only<p>
 
