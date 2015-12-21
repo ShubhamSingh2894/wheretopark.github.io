@@ -24,6 +24,11 @@
 
 
 	function refresh() {
+    var now = new Date();
+    var day= now.getDay();
+    var hour    = now.getHours();
+    var minute  = now.getMinutes();
+    var a = hour + minute/60;
 
 			Parse.$ = jQuery;
 			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
@@ -51,7 +56,8 @@
 						document.getElementById("park_1").innerHTML="Full / " + user.get("waitlist")+ " Waitlist";
 					}
 				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
-								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ " " +"Slots Available /  " + user.get("waitlist")+ " Waitlist";
+								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ "\n" +"Slots Available" ;
+                document.getElementById("park_1_status").innerHTML= user.get("waitlist")+ " Waitlist";
 					}
 					else {
 							document.getElementById("park_1").innerHTML="Available / "+  + user.get("waitlist")+ " Waitlist";
@@ -71,7 +77,18 @@
 			error: function(object, error) {
 				}
 			});
-		}
+
+      if(((a<8.5) || (a>15.5) ||day == 6 || day == 0 ))
+          {
+                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "15 : 30";
+          }
+          else{
+            document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
+
+          }
+
+  }
+
 
 		window.onload = refresh;
     </script>
@@ -99,7 +116,9 @@
 			</tr>
 			<tr style="text-align:left">
 				<td><strong>Basement Parking</strong></td>
-				<td id="park_1"><strong></strong></td>
+				<td ><h5 id="park_1"></h5>
+            <h5 id="park_1_status"></h5>
+        </td>
 			</tr>
 			<tr style="text-align:left">
 				<td style="word-wrap: break-word;"><strong>Vodafone Belvedere Metro Station Parking</strong></td>
@@ -109,6 +128,8 @@
 	</table>
 
   <br>
+  <p style="font-size:80%" id= "last_updated" ><strong></strong><p>
+
   </div>
 
     <script>
