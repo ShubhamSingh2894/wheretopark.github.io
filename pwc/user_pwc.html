@@ -8,8 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<link rel="shortcut icon" href="../images/wtp.ico" type="image/x-icon" >
-	<meta http-equiv="refresh" content="20">
-
+<!--	<meta http-equiv="refresh" content="20">
+-->
     <title>WhereToPark</title>
 
     <!-- Bootstrap core CSS -->
@@ -36,7 +36,7 @@
 			var User = Parse.Object.extend("PWC");
 			var query = new Parse.Query(User);
 
-
+/*
 		query.get("quOVEYWF6d",{
 			success: function(user) {
 				if(user.get("parking_counter") == 0) {
@@ -59,7 +59,7 @@
             document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
 
           }
-
+*/
 		}
 
 		window.onload = refresh;
