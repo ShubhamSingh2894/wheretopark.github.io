@@ -10,32 +10,26 @@
 
     <title>WhereToPark</title>
 	<script type="text/javascript">
-
             function thank (){
                 var now = new Date();
                 var day = now.getDay();
                 var hour    = now.getHours();
                 var minute  = now.getMinutes();
                 var a = hour + minute/60;
-              //  if((a<8.5) || (a>15.5) ||day == 6 || day == 0 )
-                //    {
-                            alert("Hey, we are updating our systems to provide you better convinience in the coming year. Happy New Year 2016.");
-                  //  }
-
+                if((a<8.5) || (a>15.5) ||day == 6 || day == 0 )
+                    {
+                            alert("Please note that currently we operate from Monday to Friday 8.30am to 3.30pm. We thank you for visiting us.");
+                    }
             }
-
         window.onload = function(){thank();};
 	</script >
-
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 		ga('create', 'UA-71093046-1', 'auto');
 		ga('send', 'pageview');
-
 	</script>
 
     <!-- Bootstrap core CSS -->
@@ -60,7 +54,6 @@
       version    : 'v2.5'
     });
   };
-
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -80,7 +73,7 @@
 		<p class="lead"></p>
                 <p><a class="btn  btn-block btn-primary active" id="kpmg" href="kpmg/user_kpmg.html" role="button">KPMG</a></p>
 		<p><a class="btn  btn-block btn-warning active" id="pwc" href="pwc/user_pwc.html" role="button">PWC</a></p>
-		<p><a class="btn  btn-block btn-success btn-primary  disabled" href="#" role="button">Cyber Hub (Coming Soon)</a></p>
+		<p><a class="btn  btn-block btn-success btn-primary  " href="cyber_hub/cyber_hub.html" role="button">Cyber Hub</a></p>
     <div class="fb-like" data-href="https://www.facebook.com/wheretopark.IN/" data-layout="button" data-action="like" data-show-faces="true" data-share="true">
 
     </div>
@@ -97,10 +90,8 @@
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 		ga('create', 'UA-71093046-1', 'auto');
 		ga('send', 'pageview');
-
 	</script>
 
       <footer class="footer">

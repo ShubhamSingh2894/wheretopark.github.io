@@ -24,67 +24,20 @@
 
 
 	function refresh() {
-    var now = new Date();
-    var day= now.getDay();
-    var hour    = now.getHours();
-    var minute  = now.getMinutes();
-    var a = hour + minute/60;
+
 
 			Parse.$ = jQuery;
-			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
-			var User = Parse.Object.extend("KPMG");
+			Parse.initialize("ckaCxiS4fmmGPmlyrM7CCh2sjG3NARjGvcgQN3gL", "LfJvvJzqZsl0yUfZex5Jj49M1TlDCl8X5F0kcyxe");
+			var User = Parse.Object.extend("sagar");
 			var query = new Parse.Query(User);
 
-                query.get("1dDJ4kgypx",{
+                query.get("JeeVQhcRqM",{
 			success: function(user) {
-				if(user.get("parking_counter") == 0) {
-						document.getElementById("park_0").innerHTML="Full";
-					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
-								document.getElementById("park_0").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
-					}
-					else {
-							document.getElementById("park_0").innerHTML="Available";
-					}
+						document.getElementById("park_0").innerHTML=user.get("parking_count");
 			}
 			});
 
-		query.get("8CeEdrKPnC",{
-			success: function(user) {
-				if(user.get("parking_counter") == 0) {
-						document.getElementById("park_1").innerHTML="Full / " + user.get("waitlist")+ " Waitlist";
-					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
-								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ "\n" +"Slots Available" ;
-                document.getElementById("park_1_status").innerHTML= user.get("waitlist")+ " Waitlist";
-					}
-					else {
-							document.getElementById("park_1").innerHTML="Available / "+  + user.get("waitlist")+ " Waitlist";
-					}
-			}
-			});
 
-		query.get("CxD6JdgfB6",{
-			success: function(user) {
-					if(user.get("parking_counter") == 0) {
-								document.getElementById("park_2").innerHTML="Full";
-					}
-				 else {
-								document.getElementById("park_2").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
-					}
-			},
-			error: function(object, error) {
-				}
-			});
-
-      if(((a<8.5) || (a>15.5) ||day == 6 || day == 0 ))
-          {
-                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "15 : 30";
-          }
-          else{
-            document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
-
-          }
   }
 
 		window.onload = refresh;
@@ -108,18 +61,17 @@
 
 		<tbody>
 			<tr style="text-align:left">
-				<td><strong>Surface Parking</strong></td>
-				<td id="park_0"></td>
+				<td><strong>P1 Parking</strong></td>
+				<td id="park_0">Coming Soon</td>
 			</tr>
 			<tr style="text-align:left">
-				<td><strong>Basement Parking</strong></td>
-				<td ><h5 id="park_1"></h5>
-            <h5 id="park_1_status"></h5>
+				<td><strong>P2 Parking</strong></td>
+        <td id="park_1"></td>
         </td>
 			</tr>
 			<tr style="text-align:left">
-				<td style="word-wrap: break-word;"><strong>Vodafone Belvedere Metro Station Parking</strong></td>
-				<td id="park_2"><strong></strong></td>
+				<td style="word-wrap: break-word;"><strong>P3 Parking</strong></td>
+				<td id="park_2"><strong>Coming Soon</strong></td>
 			</tr>
 		</tbody>
 	</table>
