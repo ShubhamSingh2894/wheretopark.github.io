@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-	<link rel="shortcut icon" href="../images/wtp.ico" type="image/x-icon" >
+	   <link rel="shortcut icon" href="../images/wtp.ico" type="image/x-icon" >
     <meta http-equiv="refresh" content="20">
 
     <title>WhereToPark</title>
@@ -32,10 +32,10 @@
 
 			Parse.$ = jQuery;
 			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
-			var User = Parse.Object.extend("KPMG");
+			var User = Parse.Object.extend("flour");
 			var query = new Parse.Query(User);
 
-                query.get("1dDJ4kgypx",{
+                query.get("eA3OITcjlc",{
 			success: function(user) {
 				if(user.get("parking_counter") == 0) {
 						document.getElementById("park_0").innerHTML="Full";
@@ -49,22 +49,22 @@
 			}
 			});
 
-		query.get("8CeEdrKPnC",{
+		query.get("di7CMJkCHO",{
 			success: function(user) {
 				if(user.get("parking_counter") == 0) {
-						document.getElementById("park_1").innerHTML="Full / " + user.get("waitlist")+ " Waitlist";
+						document.getElementById("park_1").innerHTML="Full";
 					}
 				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
-								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ "\n" +"Slots Available" ;
-                document.getElementById("park_1_status").innerHTML= user.get("waitlist")+ " Waitlist";
+								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ " " +"Slots Available" ;
+
 					}
 					else {
-							document.getElementById("park_1").innerHTML="Available / "+  + user.get("waitlist")+ " Waitlist";
+							document.getElementById("park_1").innerHTML="Available";
 					}
 			}
 			});
 
-		query.get("CxD6JdgfB6",{
+		query.get("fAKMXLY847",{
 			success: function(user) {
 					if(user.get("parking_counter") == 0) {
 								document.getElementById("park_2").innerHTML="Full";
@@ -103,7 +103,7 @@
         <h5 style="color:red"><i><strong>Better Parking, Better Convenience</strong></i></h5>
 
 		<p class="lead"></p>
-		<p><a class="btn btn-primary btn-primary disabled" href="#" role="button">KPMG</a></p>
+		<p><a class="btn btn-primary btn-primary disabled" href="#" role="button">Flour</a></p>
 		<table class="table table-striped">
 
 		<tbody>
@@ -113,9 +113,7 @@
 			</tr>
 			<tr style="text-align:left">
 				<td><strong>Basement Parking</strong></td>
-				<td ><h5 id="park_1"></h5>
-            <h5 id="park_1_status"></h5>
-        </td>
+        <td id="park_1"></td>
 			</tr>
 			<tr style="text-align:left">
 				<td style="word-wrap: break-word;"><strong>Vodafone Belvedere Metro Station Parking</strong></td>
