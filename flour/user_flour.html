@@ -40,7 +40,7 @@
 				if(user.get("parking_counter") == 0) {
 						document.getElementById("park_0").innerHTML="Full";
 					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 31){
+				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
 								document.getElementById("park_0").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
 					}
 					else {
@@ -54,7 +54,7 @@
 				if(user.get("parking_counter") == 0) {
 						document.getElementById("park_1").innerHTML="Full";
 					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 31){
+				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
 								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ " " +"Slots Available" ;
 
 					}
@@ -66,12 +66,16 @@
 
 		query.get("fAKMXLY847",{
 			success: function(user) {
-					if(user.get("parking_counter") == 0) {
-								document.getElementById("park_2").innerHTML="Full";
-					}
-				 else {
-								document.getElementById("park_2").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
-					}
+        if(user.get("parking_counter") == 0) {
+            document.getElementById("park_2").innerHTML="Full";
+          }
+         else if (user.get("parking_counter") >0  && user.get("parking_counter") < 31){
+                document.getElementById("park_2").innerHTML=user.get("parking_counter")+ " " +"Slots Available" ;
+
+          }
+          else {
+              document.getElementById("park_2").innerHTML="Available";
+          }
 			},
 			error: function(object, error) {
 				}
