@@ -50,16 +50,7 @@
 			}
 			});
 
-      if(((a<8) || (a>15.5) ||day == 6 || day == 0 ))
-          {
-                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "15 : 30";
-          }
-          else{
-            document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
-
-          }
-
-          query.get("Bfk3WKZxZg",{
+      query.get("Bfk3WKZxZg",{
             success: function(user) {
               if(user.get("parking_counter") == 0) {
                   document.getElementById("park_1").innerHTML="Full";
@@ -83,8 +74,6 @@
                 }
 
           }
-
-		}
 
 		window.onload = refresh;
     </script>
