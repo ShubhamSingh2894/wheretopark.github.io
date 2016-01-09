@@ -81,9 +81,24 @@
 				}
 			});
 
-      if(((a<8.5) || (a>15.5) ||day == 6 || day == 0 ))
+      query.get("lSIWpoJ8la",{
+        success: function(user) {
+          if(user.get("parking_counter") == 0) {
+              document.getElementById("park_3").innerHTML="Full";
+            }
+           else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
+                  document.getElementById("park_3").innerHTML=user.get("parking_counter")+ " " +"Slots Available" ;
+
+            }
+            else {
+                document.getElementById("park_3").innerHTML="Available";
+            }
+        }
+        });
+
+      if(((a<8.5) || (a>16) ||day == 6 || day == 0 ))
           {
-                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "15 : 30";
+                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "16 : 00";
           }
           else{
             document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
@@ -112,16 +127,20 @@
 
 		<tbody>
 			<tr style="text-align:left">
-				<td><strong>Surface Parking</strong></td>
+				<td><strong>Surface Parking (Building 10)</strong></td>
 				<td id="park_0"></td>
 			</tr>
 			<tr style="text-align:left">
-				<td><strong>Basement Parking</strong></td>
+				<td><strong>Basement Parking (Building 10) </strong></td>
         <td id="park_1"></td>
 			</tr>
 			<tr style="text-align:left">
 				<td style="word-wrap: break-word;"><strong>Vodafone Belvedere Metro Station Parking</strong></td>
 				<td id="park_2"><strong></strong></td>
+			</tr>
+      <tr style="text-align:left">
+				<td style="word-wrap: break-word;"><strong>Basement Parking (Building 8)</strong></td>
+				<td id="park_3"><strong></strong></td>
 			</tr>
 		</tbody>
 	</table>
@@ -144,15 +163,13 @@
 		ga('send', 'pageview');
 
 	</script>
+  <footer class="footer">
 
-	 <footer class="footer">
-	  <p style="font-size:80%" ><strong>Beta Version</strong><p>
+   <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:00 AM to 4:00 PM only<p>
 
-	  <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:00 AM to 3:30 PM only<p>
+       <p style="font-size:80%">&copy; 2015 Dream Manor Navigation Private Limited</p>
+     </footer>
 
-        <p style="font-size:80%">&copy; 2015 Dream Manor Navigation Private Limited</p>
-      </footer>
-
-      </div>
-  </body>
+     </div>
+ </body>
 </html>
