@@ -59,6 +59,31 @@
 
           }
 
+          query.get("Bfk3WKZxZg",{
+            success: function(user) {
+              if(user.get("parking_counter") == 0) {
+                  document.getElementById("park_1").innerHTML="Full";
+                }
+               else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
+                      document.getElementById("park_1").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
+                }
+                else {
+                    document.getElementById("park_1").innerHTML="Available";
+                }
+            }
+            });
+
+            if(((a<8) || (a>15.5) ||day == 6 || day == 0 ))
+                {
+                        document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "15 : 30";
+                }
+                else{
+                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
+
+                }
+
+          }
+
 		}
 
 		window.onload = refresh;
@@ -86,7 +111,7 @@
 			</tr>
 			<tr style="text-align:left">
 				<td><strong>Basement Parking (Building 8)</strong></td>
-				<td id="park_1">Coming Soon<strong></strong></td>
+				<td id="park_1"><strong></strong></td>
 			</tr>
 			<!--
 			<tr style="text-align:left">
