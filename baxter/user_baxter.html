@@ -7,12 +7,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-	<link rel="shortcut icon" href="../images/wtp.ico" type="image/x-icon" >
-	<meta http-equiv="refresh" content="20">
+	   <link rel="shortcut icon" href="../images/wtp.ico" type="image/x-icon" >
+    <meta http-equiv="refresh" content="20">
+
     <title>WhereToPark</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/user_kpmg_css.css" rel="stylesheet">
 
     <link href="../css/jumbotron-narrow.css" rel="stylesheet">
@@ -23,20 +24,18 @@
 
 
 	function refresh() {
-
     var now = new Date();
     var day= now.getDay();
     var hour    = now.getHours();
     var minute  = now.getMinutes();
     var a = hour + minute/60;
 
-      Parse.$ = jQuery;
+			Parse.$ = jQuery;
 			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
-			var User = Parse.Object.extend("PWC");
+			var User = Parse.Object.extend("baxter");
 			var query = new Parse.Query(User);
 
-
-		query.get("quOVEYWF6d",{
+                query.get("qXPOxmdynY",{
 			success: function(user) {
 				if(user.get("parking_counter") == 0) {
 						document.getElementById("park_0").innerHTML="Full";
@@ -50,30 +49,16 @@
 			}
 			});
 
-      query.get("Bfk3WKZxZg",{
-            success: function(user) {
-              if(user.get("parking_counter") == 0) {
-                  document.getElementById("park_1").innerHTML="Full";
-                }
-               else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
-                      document.getElementById("park_1").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
-                }
-                else {
-                    document.getElementById("park_1").innerHTML="Available";
-                }
-            }
-            });
 
-            if(((a<8) || (a>16) ||day == 6 || day == 0 ))
-                {
-                        document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "16 : 00";
-                }
-                else{
-                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
-
-                }
+      if(((a<8.5) || (a>16) ||day == 6 || day == 0 ))
+          {
+                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "16 : 00";
+          }
+          else{
+            document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
 
           }
+  }
 
 		window.onload = refresh;
     </script>
@@ -81,6 +66,7 @@
   </head>
 
   <body>
+
 
     <div class="container">
 
@@ -90,25 +76,17 @@
         <h5 style="color:red"><i><strong>Better Parking, Better Convenience</strong></i></h5>
 
 		<p class="lead"></p>
-		<p><a class="btn  btn-warning btn-warning disabled" href="#" role="button">PWC</a></p>
+		<p><a class="btn btn-primary btn-primary disabled" href="#" role="button">Baxter</a></p>
 		<table class="table table-striped">
 
 		<tbody>
 			<tr style="text-align:left">
-				<td><strong>Basement Parking (Building 10)</strong></td>
+				<td><strong>Basement Parking (Building 8)</strong></td>
 				<td id="park_0"></td>
 			</tr>
-			<tr style="text-align:left">
-				<td><strong>Basement Parking (Building 8)</strong></td>
-				<td id="park_1"><strong></strong></td>
-			</tr>
-			<!--
-			<tr style="text-align:left">
-				<td style="word-wrap: break-word;"><strong>Vodafone Belvedere Metro Station Parking</strong></td>
-				<td id="park_2"><strong></strong></td>
-			</tr>-->
 		</tbody>
 	</table>
+
   <br>
   <p style="font-size:80%" ><strong><i>Some of the tokens might be at the exit point.</i></strong><p>
 
@@ -116,9 +94,9 @@
 
   </div>
 
+    <script>
 
-      <script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -127,13 +105,14 @@
 		ga('send', 'pageview');
 
 	</script>
-  <footer class="footer">
 
-   <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:00 AM to 4:00 PM only<p>
+	 <footer class="footer">
 
-       <p style="font-size:80%">&copy; 2015 Dream Manor Navigation Private Limited</p>
-     </footer>
+	  <p style="font-size:80%" >Kindly note that currently our operating hours are from 8:00 AM to 4:00 PM only<p>
 
-     </div>
- </body>
+        <p style="font-size:80%">&copy; 2015 Dream Manor Navigation Private Limited</p>
+      </footer>
+
+      </div>
+  </body>
 </html>
