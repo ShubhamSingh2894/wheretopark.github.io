@@ -29,63 +29,32 @@
     var hour    = now.getHours();
     var minute  = now.getMinutes();
     var a = hour + minute/60;
+    Parse.$ = jQuery;
+    Parse.initialize("nVul6sjXS7F5FfVLOX0o0a1GIkDuCYS1yBzQpVgn", "GLTokJkjL6kK54qBNQE5C5zMYXqPcyFLM1zyoQNY");
+    var User = Parse.Object.extend("Corporate");
+    var query = new Parse.Query(User);
 
-			Parse.$ = jQuery;
-			Parse.initialize("ORdRb6ZtoTRSIUBeDKCcpigKQR9Pr6YJjeguuN9t", "ec8NHsZDP17pTdRjBKQFAPxB8ihduGt6e8NAGdaH");
-			var User = Parse.Object.extend("KPMG");
-			var query = new Parse.Query(User);
+              query.get("eRYZZhzNfM",{
+    success: function(user) {
+          park_name=user.get("parking_name");
+          park_status=user.get("park_show_status");
+          document.getElementById("park_0").innerHTML=park_name[0];
+          document.getElementById("status_0").innerHTML=park_status[0];
+          document.getElementById("park_1").innerHTML=park_name[1];
+          document.getElementById("status_1").innerHTML=park_status[1];
+          document.getElementById("park_2").innerHTML=park_name[2];
+          document.getElementById("status_2").innerHTML=park_status[2];
+    }
+    });
+    if(((a<7) || (a>16) ||day == 6 || day == 0 ))
+    {
+            document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "16 : 00";
+    }
+    else{
+      document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
 
-                query.get("1dDJ4kgypx",{
-			success: function(user) {
-				if(user.get("parking_counter") == 0) {
-						document.getElementById("park_0").innerHTML="Full";
-					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
-								document.getElementById("park_0").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
-					}
-					else {
-							document.getElementById("park_0").innerHTML="Available";
-					}
-			}
-			});
-
-		query.get("8CeEdrKPnC",{
-			success: function(user) {
-				if(user.get("parking_counter") == 0) {
-						document.getElementById("park_1").innerHTML="Full / " + user.get("waitlist")+ " Waitlist";
-					}
-				 else if (user.get("parking_counter") >0  && user.get("parking_counter") < 21){
-								document.getElementById("park_1").innerHTML=user.get("parking_counter")+ "\n" +"Slots Available" ;
-                document.getElementById("park_1_status").innerHTML= user.get("waitlist")+ " Waitlist";
-					}
-					else {
-							document.getElementById("park_1").innerHTML="Available / "+  + user.get("waitlist")+ " Waitlist";
-					}
-			}
-			});
-
-		query.get("CxD6JdgfB6",{
-			success: function(user) {
-					if(user.get("parking_counter") == 0) {
-								document.getElementById("park_2").innerHTML="Full";
-					}
-				 else {
-								document.getElementById("park_2").innerHTML=user.get("parking_counter")+ " " +"Slots Available";
-					}
-			},
-			error: function(object, error) {
-				}
-			});
-
-      if(((a<7) || (a>16) ||day == 6 || day == 0 ))
-          {
-                  document.getElementById("last_updated").innerHTML="Last Updated : " +" " + "16 : 00";
-          }
-          else{
-            document.getElementById("last_updated").innerHTML="Last Updated : " +" " + hour+" : "+minute;
-
-          }
-  }
+    }
+    }
 
 		window.onload = refresh;
     </script>
@@ -104,24 +73,27 @@
 
 		<p class="lead"></p>
 		<p><a class="btn btn-primary btn-primary disabled" href="#" role="button">KPMG</a></p>
-		<table class="table table-striped">
-
+    <table class="table table-striped">
+      <thead>
+  			<tr style="text-align:left">
+          <td ><strong>Parking Name</strong></td>
+  				<td ><strong>Parking Status</strong></td>
+  			</tr>
+  </thead>
 		<tbody>
 			<tr style="text-align:left">
-				<td><strong>Surface Parking</strong></td>
-				<td id="park_0"></td>
+        <td id="park_0"></td>
+				<td id="status_0"></td>
 			</tr>
-			<tr style="text-align:left">
-				<td><strong>Basement Parking</strong></td>
-				<td ><h5 id="park_1"></h5>
-            <h5 id="park_1_status"></h5>
-        </td>
+      <tr style="text-align:left">
+        <td id="park_1"></td>
+				<td id="status_1"></td>
 			</tr>
-			<tr style="text-align:left">
-				<td style="word-wrap: break-word;"><strong>Vodafone Belvedere Metro Station Parking</strong></td>
-				<td id="park_2"><strong></strong></td>
+      <tr style="text-align:left">
+        <td id="park_2"></td>
+				<td id="status_2"></td>
 			</tr>
-		</tbody>
+</tbody>
 	</table>
 
   <br>
@@ -147,7 +119,7 @@
 
 	  <p style="font-size:80%" >Kindly note that currently our operating hours are from 7:00 AM to 4:00 PM only<p>
 
-        <p style="font-size:80%">&copy; 2015 Dream Manor Navigation Private Limited</p>
+        <p style="font-size:80%">&copy; 2016 Dream Manor Navigation Private Limited</p>
       </footer>
 
       </div>
